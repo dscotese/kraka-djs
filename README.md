@@ -30,7 +30,11 @@ const kraken       = new KrakenClient(key, secret);
 
 ### Updates:
 
-#### 1.0.1:
+#### 1.0.2 (Imported):
+- Removes any added nonce to prevent reuse [nothingisdead #77](https://github.com/nothingisdead/npm-kraken-api/pull/77)
+- Added CancelAll to private methods [nothingisdead #73](https://github.com/nothingisdead/npm-kraken-api/pull/73)
+
+#### 1.0.1 (links here and below are all to nothingisdead's repo):
 - Update dependencies
 - Update required NodeJS version: [#42](https://github.com/nothingisdead/npm-kraken-api/pull/42)
 - Add GetWebSocketsToken private method: [#65](https://github.com/nothingisdead/npm-kraken-api/pull/65)
