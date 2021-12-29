@@ -1,0 +1,34 @@
+{
+  "author": {
+    "name": "Robert Myers",
+    "url": "https://github.com/nothingisdead"
+  },
+  "bugs": {
+    "url": "https://github.com/dscotese/kraka-djs/issues",
+    "email": "btc_dealer@litmocracy.com"
+  },
+  "contributors": ["Dave Scotese"],
+  "dependencies": {
+    "got": "^11.1.4",
+    "qs": "^6.9.4"
+  },
+  "description": "kraken.com API client library for NodeJS",
+  "engines": {
+    "node": ">=8"
+  },
+  "homepage": "https://github.com/dscotese/kraka-djs#readme",
+  "keywords": [
+    "kraken",
+    "api",
+    "btc",
+    "bitcoin"
+  ],
+  "license": "MIT",
+  "main": "kraken.js",
+  "name": "kraka-djs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dscotese/kraka-djs.git"
+  },
+  "version": "1.0.2"
+}
