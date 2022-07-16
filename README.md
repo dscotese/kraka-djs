@@ -8,7 +8,7 @@ This is an asynchronous node js client for the kraken.com API. It exposes all th
 ### Installation
 
 ```bash
-npm install kraken-api
+npm install kraka-djs
 ```
 
 ### Example Usage:
