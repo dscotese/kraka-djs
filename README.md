@@ -5,7 +5,7 @@ NodeJS Client Library for the Kraken (kraken.com) API
 
 This is an asynchronous node js client for the kraken.com API. It exposes all the API methods found here: https://www.kraken.com/help/api through the ```api``` method.
 
-Please note that when you make more than one API call and correctly set the nonce so that it is always larger than the previous nonce, the requests might arrive to Kraken out of order, which guarantees that Kraken will seen an "Invalid Nonce".  You can fix this by allowing your nonces to go backwards during [a small "Nonce Window"](https://support.kraken.com/hc/en-us/articles/360001148023-What-is-a-nonce-window-), which uses milliseconds as units.  I had to set mine to more than 5000.
+Please note that when you make more than one API call and correctly set the nonce so that it is always larger than the previous nonce, the requests might arrive to Kraken out of order, which guarantees that Kraken will seen an "Invalid Nonce".  You can fix this by allowing your nonces to go backwards during [a small "Nonce Window"](https://support.kraken.com/hc/en-us/articles/360001148023-What-is-a-nonce-window-), which uses milliseconds as units.  I had to set mine to 5000.
 
 ### Installation
 
