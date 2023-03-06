@@ -32,6 +32,10 @@ const kraken       = new KrakenClient(key, secret);
 
 ### Updates:
 
+#### 1.0.3:
+- Added CancelOrderBatch to private methods.
+- Allows parameter Object to contain a property ctr which is added to the nonce to differentiate same-ms requests.
+
 #### 1.0.2 (Imported):
 - Removes any added nonce to prevent reuse [nothingisdead #77](https://github.com/nothingisdead/npm-kraken-api/pull/77)
 - Added CancelAll to private methods [nothingisdead #73](https://github.com/nothingisdead/npm-kraken-api/pull/73)
