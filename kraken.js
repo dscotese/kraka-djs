@@ -5,7 +5,7 @@ const qs     = require('qs');
 // Public/Private method names
 const methods = {
 	public  : [ 'Time', 'Assets', 'AssetPairs', 'Ticker', 'Depth', 'Trades', 'Spread', 'OHLC' ],
-	private : [ 'Balance', 'TradeBalance', 'OpenOrders', 'ClosedOrders', 'QueryOrders', 'TradesHistory', 'QueryTrades', 'OpenPositions', 'Ledgers', 'QueryLedgers', 'TradeVolume', 'AddOrder', 'CancelOrder', 'CancelAll', 'DepositMethods', 'DepositAddresses', 'DepositStatus', 'WithdrawInfo', 'Withdraw', 'WithdrawStatus', 'WithdrawCancel', 'GetWebSocketsToken' ],
+	private : [ 'Balance', 'TradeBalance', 'OpenOrders', 'ClosedOrders', 'QueryOrders', 'TradesHistory', 'QueryTrades', 'OpenPositions', 'Ledgers', 'QueryLedgers', 'TradeVolume', 'AddOrder', 'CancelOrder', 'CancelAll', 'CancelOrderBatch', 'DepositMethods', 'DepositAddresses', 'DepositStatus', 'WithdrawInfo', 'Withdraw', 'WithdrawStatus', 'WithdrawCancel', 'GetWebSocketsToken' ],
 };
 
 // Default options
@@ -23,7 +23,7 @@ const getMessageSignature = (path, request, secret, nonce) => {
 	const hmac          = new crypto.createHmac('sha512', secret_buffer);
 	const hash_digest   = hash.update(nonce + message).digest('binary');
 	const hmac_digest   = hmac.update(path + hash_digest, 'binary').digest('base64');
-
+//	console.log("Nonce:",nonce);
 	return hmac_digest;
 };
 
@@ -152,8 +152,12 @@ class KrakenClient {
                 let newNonce = false;
 
 		if(!params.nonce) {
-			params.nonce = new Date() * 1000; // spoof microsecond
-                        newNonce = true;
+			params.nonce = new Date() * 1000; //spoof microseconds
+            if(params.ctr) {
+                params.nonce += params.ctr;
+                delete params.ctr;
+            }
+            newNonce = true;
 		}
 
 		if(this.config.otp !== undefined) {
@@ -174,9 +178,9 @@ class KrakenClient {
 
 		const response = rawRequest(url, headers, params, this.config.timeout);
 
-                if(newNonce) {
-                        delete params.nonce;
-                }
+        if(newNonce) {
+            delete params.nonce;
+        }
 
 		if(typeof callback === 'function') {
 			response
