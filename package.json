@@ -24,11 +24,17 @@
     "bitcoin"
   ],
   "license": "MIT",
-  "main": "kraken.js",
   "name": "kraka-djs",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./kraken.mjs",
+      "require": "./kraken.js"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dscotese/kraka-djs.git"
   },
-  "version": "1.0.2"
+  "version": "1.0.5"
 }
